@@ -4,6 +4,9 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 }
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'com.google.dagger.hilt.android' // Hilt適用
 
 android {
     namespace 'com.example.myapplication'
@@ -73,6 +76,6 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     def lifecycle_version = "2.5.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel: $lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx: $lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel: 2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
 }
