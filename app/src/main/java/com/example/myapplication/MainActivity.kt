@@ -9,6 +9,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
@@ -38,10 +40,14 @@ class MainActivity : ComponentActivity() {
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainContent(){
+    val isShowDialog = remember { mutableStateOf(false) }
 
+    if (isShowDialog.value) {
+        EditDialog()
+    }
     EditDialog()
     Scaffold(floatingActionButton = {
-       FloatingActionButton(onClick = { /*TODO*/ }) {
+       FloatingActionButton(onClick = { isShowDialog.value = true }) {
            Icon(imageVector = Icons.Default.Add, contentDescription = "新規作成")
        }
     }) {
