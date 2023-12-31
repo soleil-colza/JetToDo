@@ -43,9 +43,9 @@ fun MainContent(){
     val isShowDialog = remember { mutableStateOf(false) }
 
     if (isShowDialog.value) {
-        EditDialog()
+        EditDialog(isShowDialog)
     }
-    EditDialog()
+    EditDialog(isShowDialog)
     Scaffold(floatingActionButton = {
        FloatingActionButton(onClick = { isShowDialog.value = true }) {
            Icon(imageVector = Icons.Default.Add, contentDescription = "新規作成")
